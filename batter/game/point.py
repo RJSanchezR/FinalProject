@@ -1,3 +1,5 @@
+from game import constants
+
 class Point:
     """Represents distance from an origin (0, 0).
 
@@ -45,6 +47,40 @@ class Point:
             boolean: True if both x and y are equal; false if otherwise.
         """
         return self._x == other.get_x() and self._y == other.get_y()
+
+    def equals_side_wall(self):
+        """Whether or not this Point is equal to the limits.
+
+        Args:
+            self (Point): An instance of Point.
+
+        Returns: 
+            boolean: True if x is equal to either parameters; false if otherwise.
+        """
+        return self._x == 1 or self._x == constants.MAX_X - 24
+    
+    def is_top(self):
+        """Whether or not this Point is equal to the top screen.
+
+        Args:
+            self (Point): An instance of Point.
+
+        Returns: 
+            boolean: True if y is equal to the limit; false if otherwise.
+        """
+        return self._y == 1
+    
+    def is_bottom(self):
+        """Whether or not this Point is equal to the bottom screen.
+
+        Args:
+            self (Point): An instance of Point.
+
+        Returns: 
+            boolean: True if y is equal to the limit; false if otherwise.
+        """
+        return self._y == constants.MAX_Y
+
 
     def get_x(self):
         """Gets the horizontal distance.

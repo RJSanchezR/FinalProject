@@ -1,5 +1,5 @@
 from time import sleep
-
+from game.audio_service import AudioService
 import raylibpy
 from game import constants
 
@@ -36,7 +36,10 @@ class Director:
             # TODO: Add some logic like the following to handle game over conditions
             # if len(self._cast["balls"]) == 0:
             #     # Game over
+            #     audio_service = AudioService()
+            #     audio_service.play_sound(constants.SOUND_BOUNCE)
             #     self._keep_playing = False
+            
 
             if raylibpy.window_should_close():
                 self._keep_playing = False

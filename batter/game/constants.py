@@ -2,13 +2,13 @@ import os
 
 MAX_X = 800
 MAX_Y = 600
-FRAME_RATE = 30
+FRAME_RATE = 120
 
 DEFAULT_SQUARE_SIZE = 20
 DEFAULT_FONT_SIZE = 20
 DEFAULT_TEXT_OFFSET = 4
 
-IMAGE_BRICK = os.path.join(os.getcwd(), "./batter/assets/brick-3.png")
+IMAGE_BRICK = os.path.join(os.getcwd(), "./batter/assets/brick-2.png")
 IMAGE_PADDLE = os.path.join(os.getcwd(), "./batter/assets/bat.png")
 IMAGE_BALL = os.path.join(os.getcwd(), "./batter/assets/ball.png")
 
