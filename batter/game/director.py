@@ -34,11 +34,11 @@ class Director:
             self._cue_action("output")
 
             # TODO: Add some logic like the following to handle game over conditions
-            # if len(self._cast["balls"]) == 0:
-            #     # Game over
-            #     audio_service = AudioService()
-            #     audio_service.play_sound(constants.SOUND_BOUNCE)
-            #     self._keep_playing = False
+            if len(self._cast["bricks"]) == 0:
+                # Game over
+                audio_service = AudioService()
+                audio_service.play_sound(constants.SOUND_BOUNCE)
+                self._keep_playing = False
             
 
             if raylibpy.window_should_close():
