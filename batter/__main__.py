@@ -16,6 +16,7 @@ from game.audio_service import AudioService
 from game.brick import Brick
 from game.ball import Ball
 from game.paddle import Paddle
+from game.lives import Lives
 from game.control_actors_action import ControlActorsAction
 from game.handle_collisions_action import HandleCollisionsAction
 from game.handle_off_screen_action import HandleOffScreenAction
@@ -29,7 +30,7 @@ def main():
     cast["bricks"] = []
     # TODO: Create bricks here and add them to the list
     for x in range(55, 700, 55):
-        for y in range(20, 140, 30):
+        for y in range(60, 180, 30):
             brick = Brick()
             brick.set_image(constants.IMAGE_BRICK)
             brick.set_position(Point(x, y))
@@ -50,6 +51,16 @@ def main():
     paddle = Paddle()
     paddle.set_position(Point(constants.MAX_X / 2, constants.MAX_Y - 40))
     cast["paddle"].append(paddle)
+
+    cast["lives"] = []
+    for x in range(1, 90, 30):
+        for y in range(1, 30, 30):
+            life = Lives()
+            life.set_image(constants.IMAGE_BALL)
+            life.set_position(Point(x, y))
+            life.set_width(constants.BALL_WIDTH)
+            life.set_height(constants.BALL_HEIGHT)
+            cast["lives"].append(life)
 
     # Create the script {key: tag, value: list}aaz
     script = {}

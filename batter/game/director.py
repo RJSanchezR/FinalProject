@@ -37,9 +37,14 @@ class Director:
             if len(self._cast["bricks"]) == 0:
                 # Game over
                 audio_service = AudioService()
-                audio_service.play_sound(constants.SOUND_BOUNCE)
+                audio_service.play_sound(constants.SOUND_OVER)
                 self._keep_playing = False
             
+            if len(self._cast["lives"]) == 0:
+                # Game over
+                audio_service = AudioService()
+                audio_service.play_sound(constants.SOUND_OVER)
+                self._keep_playing = False
 
             if raylibpy.window_should_close():
                 self._keep_playing = False
