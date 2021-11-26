@@ -15,7 +15,7 @@ from game.audio_service import AudioService
 # TODO: Add imports similar to the following when you create these classes
 from game.brick import Brick
 from game.ball import Ball
-from game.paddle import Paddle
+from game.fish import Fish
 from game.lives import Lives
 from game.control_actors_action import ControlActorsAction
 from game.handle_collisions_action import HandleCollisionsAction
@@ -46,11 +46,11 @@ def main():
     ball.set_velocity(Point(3, -3))
     cast["balls"].append(ball)
 
-    cast["paddle"] = []
-    # TODO: Create a paddle here and add it to the list
-    paddle = Paddle()
-    paddle.set_position(Point(constants.MAX_X / 2, constants.MAX_Y - 40))
-    cast["paddle"].append(paddle)
+    cast["fish"] = []
+    # TODO: Create a fish here and add it to the list
+    fish = Fish()
+    fish.set_position(Point(constants.MAX_X / 2, constants.MAX_Y - 40))
+    cast["fish"].append(fish)
 
     cast["lives"] = []
     for x in range(1, 90, 30):
