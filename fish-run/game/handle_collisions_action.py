@@ -16,10 +16,10 @@ class HandleCollisionsAction(Action):
             cast (dict): The game actors {key: tag, value: list}.
         """
         ball = cast["balls"][0]
-        paddle = cast["paddle"][0]
+        fish = cast["fish"][0]
         bricks = cast["bricks"]
 
-        if self._physics_service.is_collision(ball, paddle):
+        if self._physics_service.is_collision(ball, fish):
             ball.set_velocity(Point(ball.get_velocity().get_x(), -1 * abs(ball.get_velocity().get_y())))
 
             audio_service = AudioService()

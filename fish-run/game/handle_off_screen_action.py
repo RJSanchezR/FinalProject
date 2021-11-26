@@ -12,7 +12,7 @@ class HandleOffScreenAction(Action):
             cast (dict): The game actors {key: tag, value: list}.
         """
         ball = cast["balls"][0]
-        paddle = cast["paddle"][0]
+        fish = cast["fish"][0]
         lives = cast["lives"]
 
         if ball.get_position().over_side_wall():
