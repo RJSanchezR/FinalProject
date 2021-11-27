@@ -34,16 +34,16 @@ class Director:
             self._cue_action("output")
 
             # TODO: Add some logic like the following to handle game over conditions
-            
+        
+            ball = cast["balls"][0]
+            fish = cast["fish"][0]
+            bricks = cast["bricks"]
+            game_over = cast["game_over"][0]
+
             if len(self._cast["lives"]) == 0 or len(self._cast["bricks"]) == 0:
 
-                ball = cast["balls"][0]
-                fish = cast["fish"][0]
-                game_over = cast["game_over"][0]
-                bricks = cast["bricks"]
-
                 for brick in bricks:
-                    bricks.remove(brick)
+                    cast["bricks"].remove(brick)
                     
                 cast["balls"].remove(ball)
                 cast["fish"].remove(fish)
@@ -59,8 +59,8 @@ class Director:
 
                 # self._keep_playing = False
 
-            if raylibpy.window_should_close():
-                self._keep_playing = False
+            # if raylibpy.window_should_close():
+            #     self._keep_playing = False
 
 
     def _cue_action(self, tag):

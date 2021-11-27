@@ -5,4 +5,4 @@ class GameOver(Actor):
         super().__init__()
         self._width = constants.GAME_OVER_WIDTH
         self._height = constants.GAME_OVER_HEIGHT
-        self._image = ""
+        self._image = " "

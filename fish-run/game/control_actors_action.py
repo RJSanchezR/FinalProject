@@ -27,5 +27,5 @@ class ControlActorsAction(Action):
             cast (dict): The game actors {key: tag, value: list}.
         """
         direction = self._input_service.get_direction()
-        fish = cast["fish"][0] # there's only one in the cast
+        fish = cast["fish"][0]
         fish.set_velocity(direction.scale(constants.FISH_SPEED))        
