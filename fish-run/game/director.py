@@ -26,7 +26,7 @@ class Director:
         self._script = script
         self._keep_playing = True
         
-    def start_game(self):
+    def start_game(self, cast):
         """Starts the game loop to control the sequence of play."""
         while self._keep_playing:
             self._cue_action("input")
@@ -34,17 +34,30 @@ class Director:
             self._cue_action("output")
 
             # TODO: Add some logic like the following to handle game over conditions
-            if len(self._cast["bricks"]) == 0:
-                # Game over
-                audio_service = AudioService()
-                audio_service.play_sound(constants.SOUND_OVER)
-                self._keep_playing = False
             
-            if len(self._cast["lives"]) == 0:
+            if len(self._cast["lives"]) == 0 or len(self._cast["bricks"]) == 0:
+
+                ball = cast["balls"][0]
+                fish = cast["fish"][0]
+                game_over = cast["game_over"][0]
+                bricks = cast["bricks"]
+
+                for brick in bricks:
+                    bricks.remove(brick)
+                    
+                cast["balls"].remove(ball)
+                cast["fish"].remove(fish)
+
                 # Game over
                 audio_service = AudioService()
                 audio_service.play_sound(constants.SOUND_OVER)
-                self._keep_playing = False
+
+                game_over = cast["game_over"][0]
+                game_over.set_image(constants.IMAGE_GAME_OVER)
+
+                sleep(5)
+
+                # self._keep_playing = False
 
             if raylibpy.window_should_close():
                 self._keep_playing = False

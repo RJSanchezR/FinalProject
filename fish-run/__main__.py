@@ -17,6 +17,7 @@ from game.brick import Brick
 from game.ball import Ball
 from game.fish import Fish
 from game.lives import Lives
+from game.game_over import GameOver
 from game.control_actors_action import ControlActorsAction
 from game.handle_collisions_action import HandleCollisionsAction
 from game.handle_off_screen_action import HandleOffScreenAction
@@ -28,26 +29,23 @@ def main():
     cast = {}
     
     cast["bricks"] = []
-    # TODO: Create bricks here and add them to the list
     for x in range(55, 700, 55):
         for y in range(60, 180, 30):
             brick = Brick()
             brick.set_image(constants.IMAGE_BRICK)
             brick.set_position(Point(x, y))
+            brick.set_velocity(Point(2, 0))
             brick.set_width(constants.BRICK_WIDTH)
             brick.set_height(constants.BRICK_HEIGHT)
             cast["bricks"].append(brick)
 
     cast["balls"] = []
-    # TODO: Create a ball here and add it to the list
-# for i in range(3):
     ball = Ball()
     ball.set_position(Point(constants.MAX_X / 2, constants.MAX_Y / 2))
     ball.set_velocity(Point(3, -3))
     cast["balls"].append(ball)
 
     cast["fish"] = []
-    # TODO: Create a fish here and add it to the list
     fish = Fish()
     fish.set_position(Point(constants.MAX_X / 2, constants.MAX_Y - 40))
     cast["fish"].append(fish)
@@ -61,6 +59,12 @@ def main():
             life.set_width(constants.BALL_WIDTH)
             life.set_height(constants.BALL_HEIGHT)
             cast["lives"].append(life)
+
+    cast["game_over"] = []
+    game_over = GameOver()
+    game_over.set_position(Point(282, 182))
+    cast["game_over"].append(game_over)
+
 
     # Create the script {key: tag, value: list}aaz
     script = {}
@@ -89,7 +93,7 @@ def main():
     audio_service.play_sound(constants.SOUND_START)
     
     director = Director(cast, script)
-    director.start_game()
+    director.start_game(cast)
 
     audio_service.stop_audio()
 
