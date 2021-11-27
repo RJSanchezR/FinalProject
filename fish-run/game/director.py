@@ -1,5 +1,6 @@
 from time import sleep
 from game.audio_service import AudioService
+from game.output_service import OutputService
 import raylibpy
 from game import constants
 
@@ -29,38 +30,39 @@ class Director:
     def start_game(self, cast):
         """Starts the game loop to control the sequence of play."""
         while self._keep_playing:
-            self._cue_action("input")
-            self._cue_action("update")
-            self._cue_action("output")
+
+
+            game_over = cast["game_over"][0]
+            bricks = cast["bricks"]
 
             # TODO: Add some logic like the following to handle game over conditions
-        
-            ball = cast["balls"][0]
-            fish = cast["fish"][0]
-            bricks = cast["bricks"]
-            game_over = cast["game_over"][0]
-
-            if len(self._cast["lives"]) == 0 or len(self._cast["bricks"]) == 0:
-
-                for brick in bricks:
-                    cast["bricks"].remove(brick)
-                    
-                cast["balls"].remove(ball)
-                cast["fish"].remove(fish)
-
+            if len(self._cast["bricks"]) == 0:
                 # Game over
                 audio_service = AudioService()
                 audio_service.play_sound(constants.SOUND_OVER)
-
-                game_over = cast["game_over"][0]
+                # self._keep_playing = False
+            
+            if len(self._cast["lives"]) == 0:
+                # Game over
+                audio_service = AudioService()
+                output_service = OutputService()
+                
+                audio_service.play_sound(constants.SOUND_OVER)
                 game_over.set_image(constants.IMAGE_GAME_OVER)
-
-                sleep(5)
+                for brick in bricks:
+                    cast["bricks"].remove(brick)
 
                 # self._keep_playing = False
+                
+                output_service.remove_everything()
 
-            # if raylibpy.window_should_close():
-            #     self._keep_playing = False
+
+            if raylibpy.window_should_close():
+                self._keep_playing = False
+            
+            self._cue_action("input")
+            self._cue_action("update")
+            self._cue_action("output")
 
 
     def _cue_action(self, tag):

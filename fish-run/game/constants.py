@@ -11,7 +11,7 @@ DEFAULT_TEXT_OFFSET = 4
 IMAGE_BRICK = os.path.join(os.getcwd(), "./fish-run/assets/brick-2.png")
 IMAGE_FISH = os.path.join(os.getcwd(), "./fish-run/assets/60x50.png")
 IMAGE_BALL = os.path.join(os.getcwd(), "./fish-run/assets/ball.png")
-IMAGE_GAME_OVER = os.path.join(os.getcwd(), "./fish-run/assets/game_over_yellow.png")
+IMAGE_GAME_OVER = os.path.join(os.getcwd(), "./fish-run/assets/game_over.png")
 
 SOUND_START = os.path.join(os.getcwd(), "./fish-run/assets/start.wav")
 SOUND_BOUNCE = os.path.join(os.getcwd(), "./fish-run/assets/boing.wav")
