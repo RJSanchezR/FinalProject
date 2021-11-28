@@ -1,6 +1,6 @@
 from game.actor import Actor
 
-class Brick(Actor):
+class Hook(Actor):
     def __init__(self):
         super().__init__()
 
