@@ -33,29 +33,27 @@ class Director:
 
 
             game_over = cast["game_over"][0]
-            bricks = cast["bricks"]
-
-            # TODO: Add some logic like the following to handle game over conditions
-            if len(self._cast["bricks"]) == 0:
-                # Game over
-                audio_service = AudioService()
-                audio_service.play_sound(constants.SOUND_OVER)
-                # self._keep_playing = False
+            hooks = cast["hooks"]
             
             if len(self._cast["lives"]) == 0:
+
                 # Game over
                 audio_service = AudioService()
-                output_service = OutputService()
-                
                 audio_service.play_sound(constants.SOUND_OVER)
                 game_over.set_image(constants.IMAGE_GAME_OVER)
-                for brick in bricks:
-                    cast["bricks"].remove(brick)
-
-                # self._keep_playing = False
                 
-                output_service.remove_everything()
+                # Clear screen
+                for hook in hooks:
+                    cast["hooks"].remove(hook)
+                
+                # This could be an option to clear everthing at once
+                # output_service = OutputService()
+                # output_service.remove_everything()
 
+                #Show the end screen before closing the game
+                sleep(5)
+
+                self._keep_playing = False
 
             if raylibpy.window_should_close():
                 self._keep_playing = False
