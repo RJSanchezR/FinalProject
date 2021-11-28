@@ -15,21 +15,23 @@ class HandleCollisionsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
-        ball = cast["balls"][0]
+        # ball = cast["balls"][0]
         fish = cast["fish"][0]
-        bricks = cast["bricks"]
+        hooks = cast["hooks"]
+        lives = cast["lives"]
 
-        if self._physics_service.is_collision(ball, fish):
-            ball.set_velocity(Point(ball.get_velocity().get_x(), -1 * abs(ball.get_velocity().get_y())))
+        # if self._physics_service.is_collision(hooks, fish):
+        #     ball.set_velocity(Point(ball.get_velocity().get_x(), -1 * abs(ball.get_velocity().get_y())))
 
-            audio_service = AudioService()
-            audio_service.play_sound(constants.SOUND_BOUNCE)
+        #     audio_service = AudioService()
+        #     audio_service.play_sound(constants.SOUND_BOUNCE)
 
-        for brick in bricks:
-            if self._physics_service.is_collision(ball, brick):
-                ball.set_velocity(Point(ball.get_velocity().get_x(), ball.get_velocity().get_y() * -1)) 
+        for hook in hooks:
+            if self._physics_service.is_collision(fish, hook):
+                fish.set_position(Point((constants.MAX_X / 2) - 40, (constants.MAX_Y / 2) + 50))
 
                 audio_service = AudioService()
                 audio_service.play_sound(constants.SOUND_BOUNCE)
 
-                cast["bricks"].remove(brick)
+                for life in lives:
+                    cast["lives"].remove(life)
