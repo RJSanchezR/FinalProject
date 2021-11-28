@@ -13,7 +13,7 @@ from game.physics_service import PhysicsService
 from game.audio_service import AudioService
 
 # TODO: Add imports similar to the following when you create these classes
-from game.brick import Brick
+from game.hook import Hook
 from game.ball import Ball
 from game.fish import Fish
 from game.lives import Lives
@@ -25,7 +25,7 @@ from game.move_actors_action import MoveActorsAction
 
 def main():
 
-    # create the cast {key: tag, value: list}
+    # Create the cast {key: tag, value: list}
     cast = {}
     
     # cast["bricks"] = []
@@ -39,51 +39,29 @@ def main():
     #         brick.set_height(constants.BRICK_HEIGHT)
     #         cast["bricks"].append(brick)
 
-    cast["bricks"] = []
-    bricks = []
-    num = 0
-    x = 0
-    y = 0
+    cast["hooks"] = []
 
-    for brick in range(0, 112):
-        brick = Brick()
-        num += 1
-        if x > 800:
-            x = 1
-            y += 40
-            # brick.set_velocity(Point(-2,0))
-        if x < 200 and (y == 20 or 60 or 100 or 140):
-            brick.set_image(constants.IMAGE_BRICK)
-            brick.set_velocity(Point(-2,0))
-        if x > 200 or y ==180:
-            brick.set_image(constants.IMAGE_BRICK_1)
-            brick.set_velocity(Point(-2,0))
-        if y ==60 and x > 200:
-            brick.set_image(constants.IMAGE_BRICK)
-            brick.set_velocity(Point(-2,0))
-        if y ==140:
-            brick.set_image(constants.IMAGE_BRICK_1)
-            brick.set_velocity(Point(-2,0))
-        if y ==220:
-            brick.set_image(constants.IMAGE_BRICK)
-            brick.set_velocity(Point(-2,0))
-        if y ==260:
-            brick.set_image(constants.IMAGE_BRICK_1)
-        brick.set_position(Point(x, y))
-        x += 50
-        bricks.append(brick)
-    cast["bricks"] = bricks
+    x = constants.MAX_X - 50
+    y = 1
 
+    for hook in range(0, 200):
+        hook = Hook()
+        hook.set_image(constants.IMAGE_HOOK)
+        hook.set_position(Point(x, y))
+        hook.set_velocity(Point(-1,0))
+        hook.set_width(constants.HOOK_WIDTH)
+        hook.set_height(constants.HOOK_HEIGHT - random.randint(50, 100))
+        cast["hooks"].append(hook)
 
     cast["balls"] = []
-    ball = Ball()
-    ball.set_position(Point(constants.MAX_X / 2, constants.MAX_Y / 2))
-    ball.set_velocity(Point(3, -3))
-    cast["balls"].append(ball)
+    # ball = Ball()
+    # ball.set_position(Point(constants.MAX_X / 2, constants.MAX_Y / 2))
+    # ball.set_velocity(Point(3, -3))
+    # cast["balls"].append(ball)
 
     cast["fish"] = []
     fish = Fish()
-    fish.set_position(Point(constants.MAX_X / 2, constants.MAX_Y - 40))
+    fish.set_position(Point((constants.MAX_X / 2) - 40, (constants.MAX_Y / 2) + 50))
     cast["fish"].append(fish)
 
     cast["lives"] = []
