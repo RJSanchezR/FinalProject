@@ -8,9 +8,7 @@ DEFAULT_SQUARE_SIZE = 20
 DEFAULT_FONT_SIZE = 20
 DEFAULT_TEXT_OFFSET = 4
 
-IMAGE_BRICK = os.path.join(os.getcwd(), "./fish-run/assets/brick-2.png")
-IMAGE_BRICK_1 = os.path.join(os.getcwd(), "./fish-run/assets/brick-0.png")
-
+IMAGE_HOOK = os.path.join(os.getcwd(), "./fish-run/assets/hook.png")
 IMAGE_FISH = os.path.join(os.getcwd(), "./fish-run/assets/60x50.png")
 IMAGE_BALL = os.path.join(os.getcwd(), "./fish-run/assets/ball.png")
 IMAGE_GAME_OVER = os.path.join(os.getcwd(), "./fish-run/assets/game_over.png")
@@ -30,10 +28,10 @@ BALL_DY = BALL_DX * -1
 FISH_X = MAX_X / 2
 FISH_Y = MAX_Y - 25
 
-BRICK_WIDTH = 48
-BRICK_HEIGHT = 24
+HOOK_WIDTH = 50
+HOOK_HEIGHT = 300
 
-BRICK_SPACE = 5
+HOOK_SPACE = 1
 
 FISH_SPEED = 15
 
