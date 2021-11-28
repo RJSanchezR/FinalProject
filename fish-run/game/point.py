@@ -79,7 +79,7 @@ class Point:
         Returns: 
             boolean: True if y is equal to the limit; false if otherwise.
         """
-        return self._y >= constants.MAX_Y - 28
+        return self._y >= constants.MAX_Y - 78
 
 
     def get_x(self):
