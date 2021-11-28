@@ -28,16 +28,52 @@ def main():
     # create the cast {key: tag, value: list}
     cast = {}
     
+    # cast["bricks"] = []
+    # for x in range(55, 700, 55):
+    #     for y in range(60, 180, 30):
+    #         brick = Brick()
+    #         brick.set_image(constants.IMAGE_BRICK)
+    #         brick.set_position(Point(x, y))
+    #         brick.set_velocity(Point(2, 0))
+    #         brick.set_width(constants.BRICK_WIDTH)
+    #         brick.set_height(constants.BRICK_HEIGHT)
+    #         cast["bricks"].append(brick)
+
     cast["bricks"] = []
-    for x in range(55, 700, 55):
-        for y in range(60, 180, 30):
-            brick = Brick()
+    bricks = []
+    num = 0
+    x = 0
+    y = 0
+
+    for brick in range(0, 112):
+        brick = Brick()
+        num += 1
+        if x > 800:
+            x = 1
+            y += 40
+            # brick.set_velocity(Point(-2,0))
+        if x < 200 and (y == 20 or 60 or 100 or 140):
             brick.set_image(constants.IMAGE_BRICK)
-            brick.set_position(Point(x, y))
-            brick.set_velocity(Point(2, 0))
-            brick.set_width(constants.BRICK_WIDTH)
-            brick.set_height(constants.BRICK_HEIGHT)
-            cast["bricks"].append(brick)
+            brick.set_velocity(Point(-2,0))
+        if x > 200 or y ==180:
+            brick.set_image(constants.IMAGE_BRICK_1)
+            brick.set_velocity(Point(-2,0))
+        if y ==60 and x > 200:
+            brick.set_image(constants.IMAGE_BRICK)
+            brick.set_velocity(Point(-2,0))
+        if y ==140:
+            brick.set_image(constants.IMAGE_BRICK_1)
+            brick.set_velocity(Point(-2,0))
+        if y ==220:
+            brick.set_image(constants.IMAGE_BRICK)
+            brick.set_velocity(Point(-2,0))
+        if y ==260:
+            brick.set_image(constants.IMAGE_BRICK_1)
+        brick.set_position(Point(x, y))
+        x += 50
+        bricks.append(brick)
+    cast["bricks"] = bricks
+
 
     cast["balls"] = []
     ball = Ball()
@@ -51,14 +87,16 @@ def main():
     cast["fish"].append(fish)
 
     cast["lives"] = []
-    for x in range(1, 90, 30):
-        for y in range(1, 30, 30):
+    axis_y = constants.MAX_Y - 90
+    for x in range(1, 2):
+        for y in range(1, 4):
             life = Lives()
             life.set_image(constants.IMAGE_BALL)
-            life.set_position(Point(x, y))
+            life.set_position(Point(1, axis_y))
             life.set_width(constants.BALL_WIDTH)
             life.set_height(constants.BALL_HEIGHT)
             cast["lives"].append(life)
+            axis_y = axis_y + 30
 
     cast["game_over"] = []
     game_over = GameOver()
@@ -66,7 +104,7 @@ def main():
     cast["game_over"].append(game_over)
 
 
-    # Create the script {key: tag, value: list}aaz
+    # The script {key: tag, value: list}
     script = {}
 
     input_service = InputService()
@@ -74,8 +112,6 @@ def main():
     physics_service = PhysicsService()
     audio_service = AudioService()
     draw_actors_action = DrawActorsAction(output_service)
-
-    # TODO: Create additional actions here and add them to the script
     move_actors_action = MoveActorsAction()
     handle_off_screen_action = HandleOffScreenAction()
     control_actors_action = ControlActorsAction(input_service)
@@ -84,7 +120,6 @@ def main():
     script["input"] = [control_actors_action]
     script["update"] = [move_actors_action, handle_off_screen_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
-
 
 
     # Start the game
