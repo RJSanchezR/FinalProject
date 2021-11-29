@@ -1,3 +1,4 @@
+from time import sleep
 from game.point import Point
 from game import constants
 from game.action import Action
@@ -28,6 +29,8 @@ class HandleCollisionsAction(Action):
 
         for hook in hooks:
             if self._physics_service.is_collision(fish, hook):
+                
+                sleep(1)
                 fish.set_position(Point((constants.MAX_X / 2) - 40, (constants.MAX_Y / 2) + 50))
 
                 audio_service = AudioService()

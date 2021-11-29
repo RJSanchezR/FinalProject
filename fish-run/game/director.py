@@ -37,14 +37,16 @@ class Director:
             
             if len(self._cast["lives"]) == 0:
 
-                # Game over
-                audio_service = AudioService()
-                audio_service.play_sound(constants.SOUND_OVER)
+                # Game over screen
                 game_over.set_image(constants.IMAGE_GAME_OVER)
                 
                 # Clear screen
                 for hook in hooks:
                     cast["hooks"].remove(hook)
+
+                # Play audio
+                audio_service = AudioService()
+                audio_service.play_sound(constants.SOUND_OVER)
                 
                 # This could be an option to clear everthing at once
                 # output_service = OutputService()
