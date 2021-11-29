@@ -12,15 +12,14 @@ class HandleOffScreenAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
-        # ball = cast["balls"][0]
         fish = cast["fish"][0]
         lives = cast["lives"]
 
         # if fish.get_position().over_side_wall():
-        #     ball.set_velocity(Point(ball.get_velocity().get_x() * -1, ball.get_velocity().get_y()))
+        #     fish.set_velocity(Point(fish.get_velocity().get_x() * -1, fish.get_velocity().get_y()))
         
-        # if ball.get_position().is_top():
-        #     ball.set_velocity(Point(ball.get_velocity().get_x(), ball.get_velocity().get_y() * -1))
+        # if fish.get_position().is_top():
+        #     fish.set_velocity(Point(fish.get_velocity().get_x(), fish.get_velocity().get_y() * -1))
 
         # Limits of the screen side
         if fish.get_position().get_x() >= constants.MAX_X - 96:

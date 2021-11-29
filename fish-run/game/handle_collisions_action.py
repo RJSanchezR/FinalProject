@@ -16,21 +16,13 @@ class HandleCollisionsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
-        # ball = cast["balls"][0]
         fish = cast["fish"][0]
         hooks = cast["hooks"]
         lives = cast["lives"]
 
-        # if self._physics_service.is_collision(hooks, fish):
-        #     ball.set_velocity(Point(ball.get_velocity().get_x(), -1 * abs(ball.get_velocity().get_y())))
-
-        #     audio_service = AudioService()
-        #     audio_service.play_sound(constants.SOUND_BOUNCE)
-
         for hook in hooks:
             if self._physics_service.is_collision(fish, hook):
                 
-                sleep(1)
                 fish.set_position(Point((constants.MAX_X / 2) - 40, (constants.MAX_Y / 2) + 50))
 
                 audio_service = AudioService()

@@ -14,7 +14,6 @@ from game.audio_service import AudioService
 
 # TODO: Add imports similar to the following when you create these classes
 from game.hook import Hook
-from game.ball import Ball
 from game.fish import Fish
 from game.lives import Lives
 from game.game_over import GameOver
@@ -27,17 +26,6 @@ def main():
 
     # Create the cast {key: tag, value: list}
     cast = {}
-    
-    # cast["bricks"] = []
-    # for x in range(55, 700, 55):
-    #     for y in range(60, 180, 30):
-    #         brick = Brick()
-    #         brick.set_image(constants.IMAGE_BRICK)
-    #         brick.set_position(Point(x, y))
-    #         brick.set_velocity(Point(2, 0))
-    #         brick.set_width(constants.BRICK_WIDTH)
-    #         brick.set_height(constants.BRICK_HEIGHT)
-    #         cast["bricks"].append(brick)
 
     cast["hooks"] = []
 
@@ -52,12 +40,6 @@ def main():
         hook.set_width(constants.HOOK_WIDTH)
         hook.set_height(constants.HOOK_HEIGHT - random.randint(50, 100))
         cast["hooks"].append(hook)
-
-    cast["balls"] = []
-    # ball = Ball()
-    # ball.set_position(Point(constants.MAX_X / 2, constants.MAX_Y / 2))
-    # ball.set_velocity(Point(3, -3))
-    # cast["balls"].append(ball)
 
     cast["fish"] = []
     fish = Fish()
@@ -101,7 +83,7 @@ def main():
 
 
     # Start the game
-    output_service.open_window("Batter")
+    output_service.open_window("Fish Run")
     audio_service.start_audio()
     audio_service.play_sound(constants.SOUND_START)
     
