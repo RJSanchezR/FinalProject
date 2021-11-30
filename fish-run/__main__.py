@@ -11,12 +11,11 @@ from game.input_service import InputService
 from game.output_service import OutputService
 from game.physics_service import PhysicsService
 from game.audio_service import AudioService
-
-# TODO: Add imports similar to the following when you create these classes
 from game.hook import Hook
 from game.fish import Fish
 from game.lives import Lives
 from game.game_over import GameOver
+from game.background import Background
 from game.control_actors_action import ControlActorsAction
 from game.handle_collisions_action import HandleCollisionsAction
 from game.handle_off_screen_action import HandleOffScreenAction
@@ -26,6 +25,12 @@ def main():
 
     # Create the cast {key: tag, value: list}
     cast = {}
+
+    cast["background"] = []
+
+    background = Background()
+    background.set_position(Point(1, 1))
+    cast["background"].append(background)
 
     cast["hooks"] = []
 
@@ -38,15 +43,17 @@ def main():
         hook.set_position(Point(x, y))
         hook.set_velocity(Point(-1,0))
         hook.set_width(constants.HOOK_WIDTH)
-        hook.set_height(constants.HOOK_HEIGHT - random.randint(50, 100))
+        hook.set_height(constants.HOOK_HEIGHT)
         cast["hooks"].append(hook)
 
     cast["fish"] = []
+
     fish = Fish()
     fish.set_position(Point((constants.MAX_X / 2) - 40, (constants.MAX_Y / 2) + 50))
     cast["fish"].append(fish)
 
     cast["lives"] = []
+
     axis_y = constants.MAX_Y - 90
     for x in range(1, 2):
         for y in range(1, 4):
@@ -59,6 +66,7 @@ def main():
             axis_y = axis_y + 30
 
     cast["game_over"] = []
+
     game_over = GameOver()
     game_over.set_position(Point(282, 182))
     cast["game_over"].append(game_over)

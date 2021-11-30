@@ -14,7 +14,6 @@ IMAGE_BALL = os.path.join(os.getcwd(), "./fish-run/assets/ball.png")
 IMAGE_GAME_OVER = os.path.join(os.getcwd(), "./fish-run/assets/game_over.png")
 IMAGE_BACKGROUND = os.path.join(os.getcwd(), "./fish-run/assets/background.png")
 
-
 SOUND_START = os.path.join(os.getcwd(), "./fish-run/assets/start.wav")
 SOUND_BOUNCE = os.path.join(os.getcwd(), "./fish-run/assets/boing.wav")
 SOUND_OVER = os.path.join(os.getcwd(), "./fish-run/assets/over.wav")
@@ -43,3 +42,6 @@ BALL_HEIGHT = 24
 
 GAME_OVER_WIDTH = 236
 GAME_OVER_HEIGHT = 236
+
+BACKGROUND_WIDTH = 800
+BACKGROUND_HEIGHT = 600

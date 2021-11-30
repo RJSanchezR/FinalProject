@@ -44,19 +44,6 @@ class Director:
                 for hook in hooks:
                     cast["hooks"].remove(hook)
 
-                # Play audio
-                audio_service = AudioService()
-                audio_service.play_sound(constants.SOUND_OVER)
-                
-                # This could be an option to clear everthing at once
-                # output_service = OutputService()
-                # output_service.remove_everything()
-
-                #Show the end screen before closing the game
-                sleep(5)
-
-                self._keep_playing = False
-
             if raylibpy.window_should_close():
                 self._keep_playing = False
             
