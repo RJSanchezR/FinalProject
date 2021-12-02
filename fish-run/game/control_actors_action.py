@@ -1,5 +1,6 @@
 from game import constants
 from game.action import Action
+from game.point import Point
 
 class ControlActorsAction(Action):
     """A code template for controlling actors. The responsibility of this
@@ -27,5 +28,14 @@ class ControlActorsAction(Action):
             cast (dict): The game actors {key: tag, value: list}.
         """
         direction = self._input_service.get_direction()
+        direction = direction.scale(constants.FISH_SPEED)
         fish = cast["fish"][0]
-        fish.set_velocity(direction.scale(constants.FISH_SPEED))        
+        dx = fish.get_velocity().get_x()
+        dy = fish.get_velocity().get_y()
+
+
+        dx = dx + direction.get_x()
+        dy = dy + direction.get_y()
+
+        fish.set_velocity(Point(dx, dy))        
+
