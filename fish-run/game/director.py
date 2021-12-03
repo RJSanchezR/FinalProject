@@ -30,7 +30,10 @@ class Director:
     def start_game(self, cast):
         """Starts the game loop to control the sequence of play."""
         while self._keep_playing:
-
+            
+            self._cue_action("input")
+            self._cue_action("update")
+            self._cue_action("output")
 
             game_over = cast["game_over"][0]
             hooks = cast["hooks"]
@@ -46,10 +49,6 @@ class Director:
 
             if raylibpy.window_should_close():
                 self._keep_playing = False
-            
-            self._cue_action("input")
-            self._cue_action("update")
-            self._cue_action("output")
 
 
     def _cue_action(self, tag):
