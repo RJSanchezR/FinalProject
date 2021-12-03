@@ -6,3 +6,4 @@ class Fish(Actor):
         self._width = constants.FISH_WIDTH
         self._height = constants.FISH_HEIGHT
         self._image = constants.IMAGE_FISH
+        self._gravity = True

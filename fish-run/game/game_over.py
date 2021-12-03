@@ -6,3 +6,4 @@ class GameOver(Actor):
         self._width = constants.GAME_OVER_WIDTH
         self._height = constants.GAME_OVER_HEIGHT
         self._image = " "
+        self._gravity = False
