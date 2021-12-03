@@ -29,6 +29,7 @@ class Actor:
         self._width = 0
         self._height = 0
         self._image = ""
+        self._gravity = False
 
     def get_width(self):
         return self._width
@@ -92,6 +93,9 @@ class Actor:
             Point: The actor's speed and direction.
         """
         return self._velocity
+
+    def get_gravity(self):
+        return self._gravity
     
     def set_position(self, position):
         """Updates the actor's position to the given one.
@@ -119,6 +123,15 @@ class Actor:
             position (Point): The given velocity.
         """
         self._velocity = velocity
+
+    def set_gravity(self, gravity):
+        """Updates the actor's gravity to the given one.
+        
+        Args:
+            self (Actor): An instance of Actor.
+            gravity (Point): Gravity true or false.
+        """
+        self._gravity = gravity
 
     def has_text(self):
         return self._text != ""
