@@ -49,9 +49,9 @@ def main():
     cast["hooks"] = []
 
     x = constants.MAX_X - 50
-    y = 1
+    y = random.randint(1, 100)
 
-    for hook in range(0, 200):
+    for hook in range(0, 4):
         hook = Hook()
         hook.set_image(constants.IMAGE_HOOK)
         hook.set_position(Point(x, y))
@@ -65,22 +65,22 @@ def main():
 
     fish = Fish()
     fish.set_position(Point((constants.MAX_X / 2) - 40, (constants.MAX_Y / 2) + 50))
-    fish.set_gravity(True)
+    fish.set_gravity(False)
     cast["fish"].append(fish)
 
     cast["lives"] = []
-    space = 90
+    # space = 90
 
-    for x in range(1):
-        for y in range(3):
-            life = Lives()
-            life.set_image(constants.IMAGE_LIFE)
-            life.set_position(Point(1, (constants.MAX_Y - space)))
-            life.set_width(constants.LIFE_WIDTH)
-            life.set_height(constants.LIFE_HEIGHT)
-            life.set_gravity(False)
-            cast["lives"].append(life)
-            space = space - 30
+    # for x in range(1):
+    #     for y in range(3):
+    life = Lives()
+    #         life.set_image(constants.IMAGE_LIFE)
+    #         life.set_position(Point(1, (constants.MAX_Y - space)))
+    #         life.set_width(constants.LIFE_WIDTH)
+    #         life.set_height(constants.LIFE_HEIGHT)
+    #         life.set_gravity(False)
+    cast["lives"].append(life)
+    #         space = space - 30
 
     cast["game_over"] = []
 

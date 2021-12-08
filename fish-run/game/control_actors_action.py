@@ -27,15 +27,18 @@ class ControlActorsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
+        # direction = self._input_service.get_direction()
+        # direction = direction.scale(constants.FISH_SPEED)
+        # fish = cast["fish"][0]
+        # dx = fish.get_velocity().get_x()
+        # dy = fish.get_velocity().get_y()
+
+
+        # dx = dx + direction.get_x()
+        # dy = dy + direction.get_y()
+
+        # fish.set_velocity(Point(dx, dy))
+
         direction = self._input_service.get_direction()
-        direction = direction.scale(constants.FISH_SPEED)
-        fish = cast["fish"][0]
-        dx = fish.get_velocity().get_x()
-        dy = fish.get_velocity().get_y()
-
-
-        dx = dx + direction.get_x()
-        dy = dy + direction.get_y()
-
-        fish.set_velocity(Point(dx, dy))        
-
+        fish = cast["fish"][0] # there's only one in the cast
+        fish.set_velocity(direction.scale(constants.FISH_SPEED))   

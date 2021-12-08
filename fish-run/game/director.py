@@ -37,6 +37,8 @@ class Director:
 
             game_over = cast["game_over"][0]
             hooks = cast["hooks"]
+            fish = cast["fish"][0]
+
             
             if len(self._cast["lives"]) == 0:
 
@@ -46,6 +48,8 @@ class Director:
                 # Clear screen
                 for hook in hooks:
                     cast["hooks"].remove(hook)
+
+                fish.set_image(" ")
 
             if raylibpy.window_should_close():
                 self._keep_playing = False
