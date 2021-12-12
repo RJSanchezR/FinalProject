@@ -31,7 +31,7 @@ class InputService:
         dx = 0
         dy = 0
         if not self.is_up_pressed():
-            dy = .4
+            dy = .2
 
         if self.is_left_pressed():
             dx = -1

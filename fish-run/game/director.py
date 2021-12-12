@@ -50,6 +50,8 @@ class Director:
                     cast["hooks"].remove(hook)
 
                 fish.set_image(" ")
+                # audio_service = AudioService()
+                # audio_service.stop_audio()
 
             if raylibpy.window_should_close():
                 self._keep_playing = False
