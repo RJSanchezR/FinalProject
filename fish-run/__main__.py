@@ -27,6 +27,7 @@ def main():
     # Create the cast {key: tag, value: list}
     cast = {}
 
+
     cast["background"] = []
 
     background = Background()
@@ -37,29 +38,19 @@ def main():
     background.set_gravity(False)
     cast["background"].append(background)
 
-    background1 = Background()
-    background1.set_image(constants.IMAGE_BACKGROUND1)
-    background1.set_width(constants.BACKGROUND1_WIDTH)
-    background1.set_height(constants.BACKGROUND1_HEIGHT)
-    background1.set_position(Point(1, 400))
-    background1.set_velocity(Point(-1,0))
-    background1.set_gravity(False)
-    cast["background"].append(background1)
 
     cast["hooks"] = []
 
-    x = constants.MAX_X - 50
-    y = random.randint(1, 100)
+    hook = Hook()
+    # hook.create_hook()
+    cast["hooks"].extend(hook.create_hook())
 
-    for hook in range(0, 4):
-        hook = Hook()
-        hook.set_image(constants.IMAGE_HOOK)
-        hook.set_position(Point(x, y))
-        hook.set_velocity(Point(-1,0))
-        hook.set_width(constants.HOOK_WIDTH)
-        hook.set_height(constants.HOOK_HEIGHT)
-        hook.set_gravity(False)
-        cast["hooks"].append(hook)
+
+    # cast["weeds"] = []
+
+    # weed = Hook()
+    # weed.create_weed()
+    # cast["weeds"].append(weed)
 
     cast["fish"] = []
 
@@ -68,9 +59,10 @@ def main():
     fish.set_gravity(False)
     cast["fish"].append(fish)
 
-    cast["lives"] = []
-    # space = 90
 
+    cast["lives"] = []
+    
+    # space = 90
     # for x in range(1):
     #     for y in range(3):
     life = Lives()
@@ -81,6 +73,7 @@ def main():
     #         life.set_gravity(False)
     cast["lives"].append(life)
     #         space = space - 30
+
 
     cast["game_over"] = []
 
@@ -117,7 +110,7 @@ def main():
     director = Director(cast, script)
     director.start_game(cast)
 
-    audio_service.stop_audio()
+    # audio_service.stop_audio()
 
 if __name__ == "__main__":
     main()
