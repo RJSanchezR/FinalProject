@@ -1,4 +1,5 @@
 import random
+from game import constants
 from game.actor import Actor
 from game.point import Point
 
@@ -21,8 +22,8 @@ class ScoreBoard(Actor):
         """
         super().__init__()
         self._points = 0
-        self._position = Point(1, 0)
-        self.set_text(f"Score: {self._points}")
+        self._position = Point((constants.MAX_X / 2) - 5, 20)
+        self.set_text(f"{self._points}")
 
     def add_points(self, points):
         """Adds the given points to the running total and updates the text.
@@ -32,5 +33,5 @@ class ScoreBoard(Actor):
             points (integer): The points to add.
         """
         self._points += points
-        self.set_text(f"Score: {self._points}")
+        self.set_text(f"{self._points}")
         return self._points

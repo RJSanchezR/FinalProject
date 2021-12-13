@@ -8,7 +8,7 @@ FRAME_RATE = 120
 GRAVITY = 1
 
 DEFAULT_SQUARE_SIZE = 20
-DEFAULT_FONT_SIZE = 30
+DEFAULT_FONT_SIZE = 60
 DEFAULT_TEXT_OFFSET = 4
 # DEFAULT_FONT = raylibpy.load_font(os.path.join(os.getcwd(), "./fish-run/assets/Stoneburg.fnt"))
 
@@ -60,8 +60,8 @@ HOOK_SPACE = 1
 
 FISH_SPEED = 5
 
-FISH_WIDTH = 86
-FISH_HEIGHT = 68
+FISH_WIDTH = 83
+FISH_HEIGHT = 65
 
 LIFE_WIDTH = 24
 LIFE_HEIGHT = 24

@@ -44,6 +44,8 @@ class Director:
             
             if len(self._cast["lives"]) == 0:
 
+                script["input"] = []
+
                 # Game over screen
                 game_over.set_image(constants.IMAGE_GAME_OVER)
                 
@@ -51,8 +53,8 @@ class Director:
                 for hook in hooks:
                     hook.set_velocity(Point(0,0))
 
-                # fish.set_velocity(Point(0,0))
-                script["input"] = []
+                fish.set_velocity(Point(0, 1))
+
 
                 # Option to clear screen
                 # for hook in hooks:
