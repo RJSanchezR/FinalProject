@@ -22,11 +22,6 @@ class HandleCollisionsAction(Action):
 
         for hook in hooks:
             if self._physics_service.is_collision(fish, hook):
-                
-                # fish.set_position(Point((constants.MAX_X / 2) - 40, (constants.MAX_Y - 50)))
-
-                # audio_service = AudioService()
-                # audio_service.play_sound(constants.SOUND_BOUNCE)
 
                 for life in lives:
                     cast["lives"].remove(life)

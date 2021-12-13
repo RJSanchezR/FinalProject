@@ -51,8 +51,8 @@ class OutputService:
         color = raylibpy.WHITE
         # font = raylibpy.load_font(constants.DEFAULT_FONT)
 
-        if is_dark_text:
-            color = raylibpy.BLACK
+        # if is_dark_text:
+        #     color = raylibpy.WHITE
 
         raylibpy.draw_text(text, x + 5, y + 5, constants.DEFAULT_FONT_SIZE, color)
         # raylibpy.draw_text_ex(constants.DEFAULT_FONT, text, raylibpy.Vector2(x + 5, y + 5), constants.DEFAULT_FONT_SIZE, 2, color)
