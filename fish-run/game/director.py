@@ -51,7 +51,7 @@ class Director:
                 for hook in hooks:
                     hook.set_velocity(Point(0,0))
 
-                fish.set_velocity(Point(0,0))
+                # fish.set_velocity(Point(0,0))
                 script["input"] = []
 
                 # Option to clear screen

@@ -43,6 +43,8 @@ class HandleOffScreenAction(Action):
         if fish.get_position().get_x() <= 5:
             fish.set_position(Point(10, fish.get_position().get_y()))
         
+        if fish.get_position().is_bottom():
+            fish.set_position(Point(fish.get_position().get_x(), (constants.MAX_Y - constants.FISH_HEIGHT - 5)))
 
         
 
