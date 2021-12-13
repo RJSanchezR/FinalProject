@@ -1,4 +1,5 @@
 import os
+import raylibpy
 
 MAX_X = 800
 MAX_Y = 600
@@ -7,8 +8,9 @@ FRAME_RATE = 120
 GRAVITY = 1
 
 DEFAULT_SQUARE_SIZE = 20
-DEFAULT_FONT_SIZE = 20
+DEFAULT_FONT_SIZE = 30
 DEFAULT_TEXT_OFFSET = 4
+# DEFAULT_FONT = raylibpy.load_font(os.path.join(os.getcwd(), "./fish-run/assets/Stoneburg.fnt"))
 
 IMAGE_HOOK_300 = os.path.join(os.getcwd(), "./fish-run/assets/hook-300.png")
 IMAGE_HOOK_250 = os.path.join(os.getcwd(), "./fish-run/assets/hook-250.png")
