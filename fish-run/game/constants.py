@@ -2,7 +2,7 @@ import os
 
 MAX_X = 800
 MAX_Y = 600
-FRAME_RATE = 90
+FRAME_RATE = 120
 
 GRAVITY = 1
 
@@ -18,7 +18,7 @@ IMAGE_WEED_300 = os.path.join(os.getcwd(), "./fish-run/assets/weed-300.png")
 IMAGE_WEED_250 = os.path.join(os.getcwd(), "./fish-run/assets/weed-250.png")
 IMAGE_WEED_200 = os.path.join(os.getcwd(), "./fish-run/assets/weed-200.png")
 IMAGE_WEED_150 = os.path.join(os.getcwd(), "./fish-run/assets/weed-150.png")
-IMAGE_FISH = os.path.join(os.getcwd(), "./fish-run/assets/60x50.png")
+IMAGE_FISH = os.path.join(os.getcwd(), "./fish-run/assets/fish.png")
 IMAGE_LIFE = os.path.join(os.getcwd(), "./fish-run/assets/ball.png")
 IMAGE_GAME_OVER = os.path.join(os.getcwd(), "./fish-run/assets/game_over.png")
 IMAGE_BACKGROUND = os.path.join(os.getcwd(), "./fish-run/assets/background.png")
@@ -58,8 +58,8 @@ HOOK_SPACE = 1
 
 FISH_SPEED = 5
 
-FISH_WIDTH = 96
-FISH_HEIGHT = 78
+FISH_WIDTH = 86
+FISH_HEIGHT = 68
 
 LIFE_WIDTH = 24
 LIFE_HEIGHT = 24
