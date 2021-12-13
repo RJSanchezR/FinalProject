@@ -1,8 +1,9 @@
 from time import sleep
+from game import constants
+from game.point import Point
 from game.audio_service import AudioService
 from game.output_service import OutputService
 import raylibpy
-from game import constants
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -45,13 +46,16 @@ class Director:
                 # Game over screen
                 game_over.set_image(constants.IMAGE_GAME_OVER)
                 
-                # Clear screen
+                # Stop actors
                 for hook in hooks:
-                    cast["hooks"].remove(hook)
+                    hook.set_velocity(Point(0,0))
 
-                fish.set_image(" ")
-                # audio_service = AudioService()
-                # audio_service.stop_audio()
+                fish.set_velocity(Point(0,0))
+
+                # Option to clear screen
+                # for hook in hooks:
+                    # cast["hooks"].remove(hook)
+                # fish.set_image(" ")
 
             if raylibpy.window_should_close():
                 self._keep_playing = False
