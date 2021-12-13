@@ -28,7 +28,7 @@ class Director:
         self._script = script
         self._keep_playing = True
         
-    def start_game(self, cast):
+    def start_game(self, cast, script):
         """Starts the game loop to control the sequence of play."""
         while self._keep_playing:
             
@@ -39,6 +39,7 @@ class Director:
             game_over = cast["game_over"][0]
             hooks = cast["hooks"]
             fish = cast["fish"][0]
+            # control = script["input"][0]
 
             
             if len(self._cast["lives"]) == 0:
@@ -51,6 +52,7 @@ class Director:
                     hook.set_velocity(Point(0,0))
 
                 fish.set_velocity(Point(0,0))
+                script["input"] = []
 
                 # Option to clear screen
                 # for hook in hooks:

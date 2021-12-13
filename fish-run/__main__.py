@@ -98,7 +98,7 @@ def main():
     audio_service.play_sound(constants.SOUND_START)
     
     director = Director(cast, script)
-    director.start_game(cast)
+    director.start_game(cast, script)
 
     # audio_service.stop_audio()
 
