@@ -14,6 +14,7 @@ from game.background import Background
 from game.hook import Hook
 from game.fish import Fish
 from game.lives import Lives
+from game.score import ScoreBoard
 from game.game_over import GameOver
 from game.draw_actors_action import DrawActorsAction
 from game.control_actors_action import ControlActorsAction
@@ -42,15 +43,8 @@ def main():
     cast["hooks"] = []
 
     hook = Hook()
-    # hook.create_hook()
     cast["hooks"].extend(hook.create_hook())
 
-
-    # cast["weeds"] = []
-
-    # weed = Hook()
-    # weed.create_weed()
-    # cast["weeds"].append(weed)
 
     cast["fish"] = []
 
@@ -62,17 +56,13 @@ def main():
 
     cast["lives"] = []
     
-    # space = 90
-    # for x in range(1):
-    #     for y in range(3):
     life = Lives()
-    #         life.set_image(constants.IMAGE_LIFE)
-    #         life.set_position(Point(1, (constants.MAX_Y - space)))
-    #         life.set_width(constants.LIFE_WIDTH)
-    #         life.set_height(constants.LIFE_HEIGHT)
-    #         life.set_gravity(False)
     cast["lives"].append(life)
-    #         space = space - 30
+
+    cast["score"] = []
+
+    score = ScoreBoard()
+    cast["score"].append(score)
 
 
     cast["game_over"] = []
