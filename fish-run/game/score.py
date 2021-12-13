@@ -21,8 +21,7 @@ class ScoreBoard(Actor):
         """
         super().__init__()
         self._points = 0
-        position = Point(1, 0)
-        self.set_position(position)
+        self._position = Point(1, 0)
         self.set_text(f"Score: {self._points}")
 
     def add_points(self, points):
@@ -34,3 +33,4 @@ class ScoreBoard(Actor):
         """
         self._points += points
         self.set_text(f"Score: {self._points}")
+        return self._points
